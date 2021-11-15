@@ -34,18 +34,13 @@ body{
   background-color: #FAFAFA;
   float: left;
 }
-
-.chat{
-  width: 60%;
-  height: 100%;
-  background-color: #DCD3CD;
-  float: left;
-}
 /*** User Bar ***/
 .user-bar{
+  width: 100%;
+}
+.user-bar, .active-contact-bar{
   height: 60px;
   background-color: #FAFAFA;
-  width: 100%;
   padding: 0 15px;
   display: flex;
   justify-content: space-between;
@@ -152,6 +147,13 @@ body{
   justify-content: flex-start;
   align-items: flex-start;
 }
+.contact-image img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  cursor: pointer;
+}
 
 .contact .contact-name{
   font-size: 12px;
@@ -185,4 +187,18 @@ body{
 .profile-image .user-name{
   font-size: 12px;
   font-weight: bolder;
+}
+
+/*** CHAT ***/
+.chat{
+  width: 60%;
+  height: 100%;
+  background-image: url(../img/mine.jpg);
+  float: left;
+}
+/* ACTIVE-CONTACT-BAR */
+
+.active-contact-bar{
+  margin-left: 2px;
+  width: calc(100% - 2px);
 }
