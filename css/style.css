@@ -31,7 +31,7 @@ body{
 .aside{
   width: 40%;
   height: 100%;
-  background-color: white;
+  background-color: #FAFAFA;
   float: left;
 }
 
@@ -44,7 +44,7 @@ body{
 /*** User Bar ***/
 .user-bar{
   height: 60px;
-  background-color: white;
+  background-color: #FAFAFA;
   width: 100%;
   padding: 0 15px;
   display: flex;
@@ -97,7 +97,25 @@ body{
 
 /*** Chats ***/
 .chats{
+  padding: 15px;
+}
+.chats .search{
+  background-color: white;
+  color: #B8BABC;
+  font-size: 12px;
+  height: 30px;
+  border-radius: 10px;
+  width: 90%;
+  margin: 0 auto;
+  cursor: pointer;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
 
+.chats .search i{
+  padding-right: 15px;
 }
 
 
