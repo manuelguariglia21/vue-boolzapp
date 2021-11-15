@@ -100,12 +100,28 @@ body{
   padding: 15px;
 }
 .chats .search{
+  border-radius: 10px 0px 0px 10px;
   background-color: white;
   color: #B8BABC;
   font-size: 12px;
   height: 30px;
   border-radius: 10px;
-  width: 90%;
+  margin: 0 auto;
+  cursor: pointer;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.chats input{
+  width: 100%;
+  background-color: transparent;
+  color: #B8BABC;
+  font-size: 12px;
+  height: 30px;
+  border-radius: 0px 10px 10px 0px;
+  border: none;
   margin: 0 auto;
   cursor: pointer;
   padding-left: 10px;
