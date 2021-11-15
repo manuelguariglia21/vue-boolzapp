@@ -96,9 +96,6 @@ body{
 
 
 /*** Chats ***/
-.chats{
-  padding: 15px;
-}
 .chats .search{
   border-radius: 10px 0px 0px 10px;
   background-color: white;
@@ -112,6 +109,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  margin: 15px;
 }
 
 .chats input{
@@ -132,6 +130,40 @@ body{
 
 .chats .search i{
   padding-right: 15px;
+}
+
+/** contact **/
+.contact{
+  background-color: white;
+  margin:0px 15px 3px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.contact.active{
+  background-color: #EAEAEB;
+}
+
+.contact-box{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.contact .contact-name{
+  font-size: 12px;
+}
+
+.contact .contact-name{
+  font-weight: bolder;
+}
+
+.contact .contact-message, .contact .last-access{
+  font-size: 10px;
+  color: #C2C5C5;
 }
 
 
