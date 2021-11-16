@@ -127,7 +127,7 @@
         <!-- send message input -->
         <div class="send-message-input">
           <i class="far fa-smile"></i>
-          <input type="text" placeholder="Scrivi un messaggio">
+          <input @keyup.enter="sendMessage()" v-model="newText" type="text" placeholder="Scrivi un messaggio">
           <i class="fas fa-microphone"></i>
         </div>
         <!-- /send message input -->

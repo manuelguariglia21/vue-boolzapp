@@ -87,6 +87,8 @@ const app = new Vue({
 
   },
 
+  newText: 'ciao',
+
   methods:{
     getImage(id){
       return 'img/avatar'+id+'.jpg' ;
@@ -104,6 +106,16 @@ const app = new Vue({
 
     isActive(element){
       this.activeChat = element;
+    },
+
+    sendMessage(activeChat){
+      newMessage = {
+        date: '10/01/2020 15:30:55',
+        message: this.newText,
+        status: 'sent'
+      };
+      console.log('messaggio inviato: ', this.newText);
+      activeChat.messages.push(newMessage);
     }
   }
 })
