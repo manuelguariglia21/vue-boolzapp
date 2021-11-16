@@ -57,7 +57,7 @@
           </div>
           
           <!-- contacts -->
-          <div v-for="(contact, index) in contacts" class="contact">
+          <div v-for="(contact, index) in contacts" class="contact" @click="isActive(contact)" :class="{'active': activeChat === contact.avatar}">
             <div class="contact-box">
               <div class="contact-image">
                 <img :src="getImage(contact.avatar)" :alt="contact.name">

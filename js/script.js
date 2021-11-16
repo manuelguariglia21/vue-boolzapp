@@ -83,6 +83,8 @@ const app = new Vue({
       },
   ],
 
+  activeChat: ' ',
+
   },
 
   methods:{
@@ -90,6 +92,18 @@ const app = new Vue({
       return 'img/avatar'+id+'.jpg' ;
     },
 
-    
+    isVisible(array, index){
+      for(element in array){
+        array[element].visible = true;
+      }
+      if(array[index].visible === true){
+        array[index].visible = false;
+      }
+      else array[index].visible = true;
+    },
+
+    isActive(element){
+      this.activeChat = element.avatar;
+    }
   }
 })
