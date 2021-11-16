@@ -211,14 +211,16 @@ body{
 
 .container-messages .message{
   min-width: 200px;
+  margin: 5px 0;
   height: 40px;
   border-radius: 10px;
 }
 
 .container-messages .left-messages, .container-messages .right-messages{
+  display: flex;
+  justify-content: space-between;
+  /* position: relative; */
   clear: both;
-  display: block;
-  position: relative;
 }
 
 .container-messages .left-messages{
@@ -233,14 +235,16 @@ body{
 .message-text{
   font-size: 12px;
   font-weight: bold;
-  padding-left: 15px;
+  padding: 0px 15px;
   line-height: 40px;
 }
 
 .message-date{
   font-size: 8px;
   color: #B8BABC;
-  position: absolute;
+  /* position: absolute; */
+  align-self: flex-end;
+  padding: 5px;
   bottom: 2px;
   right: 5px;
 }
