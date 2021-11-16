@@ -195,7 +195,54 @@ body{
   height: 100%;
   background-image: url(../img/mine.jpg);
   float: left;
+  overflow: auto;
 }
+
+.chat .container-messages{
+  width: calc(100% - 100px);
+  height: calc(100% - 150px);
+  margin: 30px 50px;
+}
+
+.container-messages .message{
+  min-width: 200px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.container-messages .left-messages, .container-messages .right-messages{
+  clear: both;
+  display: block;
+  position: relative;
+}
+
+.container-messages .left-messages{
+  float: left;
+  background-color: white;
+}
+.container-messages .right-messages{
+  float: right;
+  background-color: #D6FABA;
+}
+
+.message-text{
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 15px;
+  line-height: 40px;
+}
+
+.message-date{
+  font-size: 8px;
+  color: #B8BABC;
+  position: absolute;
+  bottom: 2px;
+  right: 5px;
+}
+
+
+
+
 /* ACTIVE-CONTACT-BAR */
 
 .active-contact-bar{
