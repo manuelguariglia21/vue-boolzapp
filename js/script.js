@@ -83,7 +83,7 @@ const app = new Vue({
       },
   ],
 
-  activeChat: ' ',
+  activeChat: null,
 
   },
 
@@ -103,7 +103,7 @@ const app = new Vue({
     },
 
     isActive(element){
-      this.activeChat = element.avatar;
+      this.activeChat = element;
     }
   }
 })

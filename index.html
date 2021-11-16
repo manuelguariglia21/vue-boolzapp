@@ -57,7 +57,7 @@
           </div>
           
           <!-- contacts -->
-          <div v-for="(contact, index) in contacts" class="contact" @click="isActive(contact)" :class="{'active': activeChat === contact.avatar}">
+          <div v-for="(contact, index) in contacts" class="contact" @click="isActive(contact)" :class="{'active': activeChat === contact}">
             <div class="contact-box">
               <div class="contact-image">
                 <img :src="getImage(contact.avatar)" :alt="contact.name">
@@ -83,11 +83,11 @@
   
       <!-- CHAT -->
       <section class="chat">
-        <div class="active-contact-bar">
+        <div v-if="activeChat != null" class="active-contact-bar">
   
           <!-- profile-image -->
           <div class="profile-image" id="avatar-1">
-            <img src="img/avatar_io.jpg" alt="">
+            <img :src="getImage(activeChat.avatar)" alt="">
             <div class="user-name" id="name-1">
               <span>Nome Cognome</span>
             </div>
