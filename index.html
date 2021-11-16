@@ -82,14 +82,14 @@
       <!-- /ASIDE -->
   
       <!-- CHAT -->
-      <section class="chat">
-        <div v-if="activeChat != null" class="active-contact-bar">
+      <section class="chat" v-if="activeChat != null" >
+        <div class="active-contact-bar">
   
           <!-- profile-image -->
           <div class="profile-image" id="avatar-1">
             <img :src="getImage(activeChat.avatar)" alt="">
-            <div class="user-name" id="name-1">
-              <span>Nome Cognome</span>
+            <div class="user-name">
+              <span>{{activeChat.name}}</span>
             </div>
           </div>
           <!-- /profile-image -->
@@ -106,18 +106,9 @@
   
         <div class="container-messages clearfix">
   
-          <div class="message left-messages">
+          <div v-for="(message, index) in activeChat.messages" class="message" :class="{'left-messages': message.status === 'received', 'right-messages': message.status === 'sent'}">
             <div class="message-text">
-              Ciao
-            </div>
-            <div class="message-date">
-              10/12/2021
-            </div>
-          </div>
-  
-          <div class="message right-messages">
-            <div class="message-text">
-              Ciao
+              {{message.message}}
             </div>
             <div class="message-date">
               10/12/2021
