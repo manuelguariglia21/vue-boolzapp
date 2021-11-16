@@ -168,6 +168,11 @@ body{
   color: #C2C5C5;
 }
 
+.contact .last-access{
+  font-size: 10px;
+  text-align: right;
+}
+
 
 /*** Users General ***/
 .profile-image{

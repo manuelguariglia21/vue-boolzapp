@@ -9,142 +9,129 @@
   <title>Boolzapp</title>
 </head>
 <body>
-  <div class="container clearfix">
 
-    <!-- ASIDE -->
-    <section class="aside">
-      <!-- USER BAR -->
-      <div class="user-bar">
+  <div id="app">
+    <div class="container clearfix">
 
-        <!-- profile-image -->
-        <div class="profile-image" id="avatar-1">
-          <img src="img/avatar_io.jpg" alt="">
-          <div class="user-name" id="name-1">
-            <span>Nome Cognome</span>
-          </div>
-        </div>
-        <!-- /profile-image -->
-
-        <!-- settings -->
-        <div class="settings">
-          <i class="fas fa-circle-notch"></i>
-          <i class="fas fa-comment-alt"></i>
-          <i class="fas fa-ellipsis-v"></i>
-        </div>
-        <!-- /settings -->
-
-      </div>
-      <!-- /USER BAR -->
-
-      <!-- NOTIFY BAR -->
-      <div class="notify-bar">
-        <div class="notify-icon">
-          <i class="fas fa-bell-slash"></i>
-        </div>
-        <div class="notify-link">
-          <p>Ricevi notifiche di nuovi messaggi</p>
-          <a href="#"><span>Attiva notifiche Desktop</span></a>
-        </div>
-      </div>
-      <!-- /NOTIFY BAR -->
-
-      <div class="chats">
-        <div class="search">
-          <i class="fas fa-search"></i>
-          <input type="text" placeholder="Cerca o inizia una nuova chat">
-        </div>
-        
-        <!-- contacts -->
-        <div class="contact active">
-          <div class="contact-box">
-            <div class="contact-image" id="avatar-2">
-              <img src="img/avatar_1.jpg" alt="Michele">
-            </div>
-            <div class="contact-content">
-              <div class="contact-name">
-                Michele
-              </div>
-              <div class="contact-message">
-                Tutto fatto! ...
-              </div>
+      <!-- ASIDE -->
+      <section class="aside">
+        <!-- USER BAR -->
+        <div class="user-bar">
+  
+          <!-- profile-image -->
+          <div class="profile-image" id="avatar-1">
+            <img src="img/avatar_io.jpg" alt="">
+            <div class="user-name" id="name-1">
+              <span>Nome Cognome</span>
             </div>
           </div>
-          <div class="last-access">
-            10/12/2021
+          <!-- /profile-image -->
+  
+          <!-- settings -->
+          <div class="settings">
+            <i class="fas fa-circle-notch"></i>
+            <i class="fas fa-comment-alt"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+          <!-- /settings -->
+  
+        </div>
+        <!-- /USER BAR -->
+  
+        <!-- NOTIFY BAR -->
+        <div class="notify-bar">
+          <div class="notify-icon">
+            <i class="fas fa-bell-slash"></i>
+          </div>
+          <div class="notify-link">
+            <p>Ricevi notifiche di nuovi messaggi</p>
+            <a href="#"><span>Attiva notifiche Desktop</span></a>
           </div>
         </div>
-
-        <div class="contact">
-          <div class="contact-box">
-            <div class="contact-image" id="avatar-2">
-              <img src="img/avatar_1.jpg" alt="Michele">
-            </div>
-            <div class="contact-content">
-              <div class="contact-name">
-                Michele
+        <!-- /NOTIFY BAR -->
+  
+        <div class="chats">
+          <div class="search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Cerca o inizia una nuova chat">
+          </div>
+          
+          <!-- contacts -->
+          <div v-for="(contact, index) in contacts" class="contact">
+            <div class="contact-box">
+              <div class="contact-image">
+                <img :src="getImage(contact.avatar)" :alt="contact.name">
               </div>
-              <div class="contact-message">
-                Tutto fatto! ...
+              <div class="contact-content">
+                <div class="contact-name">
+                  {{contact.name}}
+                </div>
+                <div class="contact-message">
+                  {{contact.messages.slice(-1)[0].message}}
+                </div>
               </div>
             </div>
+            <div class="last-access">
+              {{contact.messages.slice(-1)[0].date}}
+            </div>
           </div>
-          <div class="last-access">
-            10/12/2021
-          </div>
+          <!-- /contacts -->
+          
         </div>
-        <!-- /contacts -->
-        
-      </div>
-    </section>
-    <!-- /ASIDE -->
-
-    <!-- CHAT -->
-    <section class="chat">
-      <div class="active-contact-bar">
-
-        <!-- profile-image -->
-        <div class="profile-image" id="avatar-1">
-          <img src="img/avatar_io.jpg" alt="">
-          <div class="user-name" id="name-1">
-            <span>Nome Cognome</span>
+      </section>
+      <!-- /ASIDE -->
+  
+      <!-- CHAT -->
+      <section class="chat">
+        <div class="active-contact-bar">
+  
+          <!-- profile-image -->
+          <div class="profile-image" id="avatar-1">
+            <img src="img/avatar_io.jpg" alt="">
+            <div class="user-name" id="name-1">
+              <span>Nome Cognome</span>
+            </div>
           </div>
+          <!-- /profile-image -->
+  
+          <!-- settings -->
+          <div class="settings">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-paperclip"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+          <!-- /settings -->
+  
         </div>
-        <!-- /profile-image -->
-
-        <!-- settings -->
-        <div class="settings">
-          <i class="fas fa-search"></i>
-          <i class="fas fa-paperclip"></i>
-          <i class="fas fa-ellipsis-v"></i>
+  
+        <div class="container-messages clearfix">
+  
+          <div class="message left-messages">
+            <div class="message-text">
+              Ciao
+            </div>
+            <div class="message-date">
+              10/12/2021
+            </div>
+          </div>
+  
+          <div class="message right-messages">
+            <div class="message-text">
+              Ciao
+            </div>
+            <div class="message-date">
+              10/12/2021
+            </div>
+          </div>
+  
         </div>
-        <!-- /settings -->
-
-      </div>
-
-      <div class="container-messages clearfix">
-
-        <div class="message left-messages">
-          <div class="message-text">
-            Ciao
-          </div>
-          <div class="message-date">
-            10/12/2021
-          </div>
-        </div>
-
-        <div class="message right-messages">
-          <div class="message-text">
-            Ciao
-          </div>
-          <div class="message-date">
-            10/12/2021
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <!-- /CHAT -->
-    
+      </section>
+      <!-- /CHAT -->
+      
+    </div>
   </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
