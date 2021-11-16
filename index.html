@@ -19,7 +19,7 @@
         <div class="user-bar">
   
           <!-- profile-image -->
-          <div class="profile-image" id="avatar-1">
+          <div class="profile" id="avatar-1">
             <img src="img/avatar_io.jpg" alt="">
             <div class="user-name" id="name-1">
               <span>Nome Cognome</span>
@@ -86,10 +86,15 @@
         <div class="active-contact-bar">
   
           <!-- profile-image -->
-          <div class="profile-image" id="avatar-1">
+          <div class="profile" id="avatar-1">
             <img :src="getImage(activeChat.avatar)" alt="">
-            <div class="user-name">
-              <span>{{activeChat.name}}</span>
+            <div class="user-info">
+              <div class="user-name">
+                <span>{{activeChat.name}}</span>
+              </div>
+              <div class="user-lastime">
+                <span>Ultimo accesso il {{activeChat.messages.slice(-1)[0].date}}</span>
+              </div>
             </div>
           </div>
           <!-- /profile-image -->
@@ -103,7 +108,8 @@
           <!-- /settings -->
   
         </div>
-  
+        
+        <!-- active chat -->
         <div class="container-messages clearfix">
   
           <div v-for="(message, index) in activeChat.messages" class="message" :class="{'left-messages': message.status === 'received', 'right-messages': message.status === 'sent'}">
@@ -111,11 +117,20 @@
               {{message.message}}
             </div>
             <div class="message-date">
-              10/12/2021
+              {{message.date}}
             </div>
           </div>
   
         </div>
+        <!-- /active chat -->
+
+        <!-- send message input -->
+        <div class="send-message-input">
+          <i class="far fa-smile"></i>
+          <input type="text" placeholder="Scrivi un messaggio">
+          <i class="fas fa-microphone"></i>
+        </div>
+        <!-- /send message input -->
       </section>
       <!-- /CHAT -->
       

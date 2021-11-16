@@ -14,6 +14,21 @@ body{
   font-family: Helvetica, sans-serif;  
 }
 
+input{
+  background-color: transparent;
+  color: #B8BABC;
+  width: 100%;
+  font-size: 12px;
+  height: 30px;
+  border: none;
+  margin: 0 auto;
+  cursor: pointer;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .clearfix::after{
   content: "";
   display: table;
@@ -34,17 +49,22 @@ body{
   background-color: #FAFAFA;
   float: left;
 }
-/*** User Bar ***/
+/*** Bars ***/
 .user-bar{
   width: 100%;
 }
-.user-bar, .active-contact-bar{
+.user-bar, .active-contact-bar, .send-message-input{
   height: 60px;
   background-color: #FAFAFA;
   padding: 0 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.active-contact-bar, .send-message-input{
+  margin-left: 2px;
+  width: calc(100% - 2px);
 }
 
 
@@ -107,20 +127,10 @@ body{
   margin: 15px;
 }
 
+
+
 .chats input{
-  width: 100%;
-  background-color: transparent;
-  color: #B8BABC;
-  font-size: 12px;
-  height: 30px;
   border-radius: 0px 10px 10px 0px;
-  border: none;
-  margin: 0 auto;
-  cursor: pointer;
-  padding-left: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
 }
 
 .chats .search i{
@@ -175,13 +185,12 @@ body{
 
 
 /*** Users General ***/
-.profile-image{
+.profile{
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  line-height: 60px;
 }
-.profile-image img{
+.profile img{
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -189,9 +198,15 @@ body{
   cursor: pointer;
 }
 
-.profile-image .user-name{
+.profile .user-name{
   font-size: 12px;
   font-weight: bolder;
+}
+
+.user-lastime{
+  font-size: 10px;
+  color:#7B8283;
+  font-weight: bold;
 }
 
 /*** CHAT ***/
@@ -205,7 +220,7 @@ body{
 
 .chat .container-messages{
   width: calc(100% - 100px);
-  height: calc(100% - 150px);
+  height: calc(100% - 180px);
   margin: 30px 50px;
 }
 
@@ -248,13 +263,26 @@ body{
   bottom: 2px;
   right: 5px;
 }
-
-
-
-
-/* ACTIVE-CONTACT-BAR */
-
-.active-contact-bar{
-  margin-left: 2px;
-  width: calc(100% - 2px);
+.send-message-input{
+  background-color: #F4EEEA;
 }
+.send-message-input input{
+  background-color: white;
+  border-radius: 10px;
+  height: 35px;
+}
+.send-message-input i{
+  cursor: pointer;
+  color: #7B8283;
+}
+.send-message-input i:first-of-type{
+  padding-right: 15px;
+}
+
+.send-message-input i:last-of-type{
+  padding-left: 15px;
+}
+
+
+
+
