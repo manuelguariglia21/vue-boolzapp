@@ -87,7 +87,13 @@ const app = new Vue({
 
   },
 
-  newText: '',
+  searchingWord: 'Luisa',
+
+  visibleContact:[],
+
+  invisibleContact: [],
+
+  newText: 'ciao',
 
   methods:{
     getImage(id){
@@ -131,6 +137,28 @@ const app = new Vue({
       const newAnswerMessage = setInterval(answer(), 1000);
       clearInterval(newAnswerMessage);
 
+    },
+
+    searchFunction(){
+      console.log(this.searchingWord);
+      for(contact of this.contacts){
+        console.log(contact.name);
+        const name = contact.name.toLowerCase();
+        const search = this.searchingWord.toLowerCase();
+        if(name.includes(search)){
+          console.log('contiene!!')
+          contact.visible = true;
+        }
+        else{
+          console.log('non contiene!');
+          contact.visible = false;
+        }
+      }
+      
+      
     }
+
   }
+
+  
 })
