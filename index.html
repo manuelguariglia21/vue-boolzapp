@@ -114,18 +114,21 @@
         </div>
         
         <!-- active chat -->
-        <div class="container-messages clearfix">
+        <div class="chat-box">
+          <div class="container-messages clearfix">
   
-          <div v-for="(message, index) in activeChat.messages" class="message" :class="{'left-messages': message.status === 'received', 'right-messages': message.status === 'sent'}">
-            <div class="message-text">
-              {{message.message}}
+            <div v-for="(message, index) in activeChat.messages" class="message" :class="{'left-messages': message.status === 'received', 'right-messages': message.status === 'sent'}">
+              <div class="message-text">
+                {{message.message}}
+              </div>
+              <div class="message-date">
+                {{message.date}}
+              </div>
             </div>
-            <div class="message-date">
-              {{message.date}}
-            </div>
+    
           </div>
-  
         </div>
+        
         <!-- /active chat -->
 
         <!-- send message input -->
