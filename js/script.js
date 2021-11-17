@@ -66,8 +66,72 @@ const app = new Vue({
           ],
       },
       {
-          name: 'Luisa',
+          name: 'Giuseppe',
           avatar: '_4',
+          visible: true,
+          messages: [{
+              date: '10/01/2020 15:30:55',
+              message: 'Lo sai che ha aperto una nuova pizzeria?',
+              status: 'sent'
+          },
+              {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+              }
+          ],
+      },
+      {
+          name: 'Giorgio',
+          avatar: '_5',
+          visible: true,
+          messages: [{
+              date: '10/01/2020 15:30:55',
+              message: 'Lo sai che ha aperto una nuova pizzeria?',
+              status: 'sent'
+          },
+              {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+              }
+          ],
+      },
+      {
+          name: 'Francesca',
+          avatar: '_6',
+          visible: true,
+          messages: [{
+              date: '10/01/2020 15:30:55',
+              message: 'Lo sai che ha aperto una nuova pizzeria?',
+              status: 'sent'
+          },
+              {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+              }
+          ],
+      },
+      {
+          name: 'Tommaso',
+          avatar: '_7',
+          visible: true,
+          messages: [{
+              date: '10/01/2020 15:30:55',
+              message: 'Lo sai che ha aperto una nuova pizzeria?',
+              status: 'sent'
+          },
+              {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+              }
+          ],
+      },
+      {
+          name: 'Gianluca',
+          avatar: '_8',
           visible: true,
           messages: [{
               date: '10/01/2020 15:30:55',
