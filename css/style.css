@@ -110,8 +110,9 @@ input{
 }
 
 
-/*** Chats ***/
-.chats .search{
+/*** SEARCH BAR ***/
+
+.search{
   border-radius: 10px 0px 0px 10px;
   background-color: white;
   color: #B8BABC;
@@ -129,13 +130,20 @@ input{
 
 
 
-.chats input{
+.search input{
   border-radius: 0px 10px 10px 0px;
 }
 
-.chats .search i{
+.search i{
   padding-right: 15px;
 }
+
+/*** CHATS ***/
+.chats{
+  height: calc(100% - 180px);
+  overflow: auto;
+}
+
 
 /** contact **/
 .contact{

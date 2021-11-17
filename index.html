@@ -49,15 +49,18 @@
           </div>
         </div>
         <!-- /NOTIFY BAR -->
+
+        <!-- SEARCH BAR -->
+        <div class="search">
+          <i class="fas fa-search"></i>
+          <input v-model="searchingWord" @keyup="searchFunction()" type="text" placeholder="Cerca o inizia una nuova chat">
+        </div>
+        <!-- /SEARCH BAR -->
   
         <div class="chats">
-          <div class="search">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Cerca o inizia una nuova chat">
-          </div>
           
           <!-- contacts -->
-          <div v-for="(contact, index) in contacts" class="contact" @click="isActive(contact)" :class="{'active': activeChat === contact}">
+          <div v-for="(contact, index) in contacts" class="contact" @click="isActive(contact)" v-if="contact.visible === true" :class="{'active': activeChat === contact}">
             <div class="contact-box">
               <div class="contact-image">
                 <img :src="getImage(contact.avatar)" :alt="contact.name">
@@ -74,6 +77,7 @@
             <div class="last-access">
               {{contact.messages.slice(-1)[0].date}}
             </div>
+          
           </div>
           <!-- /contacts -->
           
