@@ -39,7 +39,7 @@ const app = new Vue({
               },
               {
                   date: '20/03/2020 16:35:00',
-                  message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                  message: 'Mi piacerebbe ma devo andare a fare la spesa. ',
                   status: 'received'
               }
           ],
@@ -87,7 +87,7 @@ const app = new Vue({
 
   },
 
-  newText: 'ciao',
+  newText: '',
 
   methods:{
     getImage(id){
@@ -105,6 +105,7 @@ const app = new Vue({
     },
 
     isActive(element){
+      this.newText = '';
       this.activeChat = element;
     },
 
@@ -114,8 +115,22 @@ const app = new Vue({
         message: this.newText,
         status: 'sent'
       };
+      newReceivedMessage = {
+        date: '10/01/2020 15:30:55',
+        message: 'ok',
+        status: 'received'
+      }
       console.log('messaggio inviato: ', this.newText);
       activeChat.messages.push(newMessage);
+      this.newText = '';
+
+      //answer
+      function answer(){
+        return activeChat.messages.push(newReceivedMessage);
+      }
+      const newAnswerMessage = setInterval(answer(), 1000);
+      clearInterval(newAnswerMessage);
+
     }
   }
 })
