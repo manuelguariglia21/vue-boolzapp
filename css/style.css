@@ -141,14 +141,14 @@ input{
 /*** CHATS ***/
 .chats{
   height: calc(100% - 180px);
-  overflow: auto;
+  overflow-y: scroll;
 }
 
 
 /** contact **/
 .contact{
   background-color: white;
-  margin:0px 15px 3px 0;
+  margin: 3px 0;
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -232,7 +232,7 @@ input{
 
 .chat-box{
   height: calc(100% - 120px);
-  overflow: auto;
+  overflow-y: scroll;
 }
 
 .container-messages .message{

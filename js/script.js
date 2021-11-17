@@ -81,6 +81,7 @@ const app = new Vue({
               }
           ],
       },
+      
   ],
 
   activeChat: null,
