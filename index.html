@@ -117,12 +117,12 @@
         <div class="chat-box">
           <div class="container-messages clearfix">
   
-            <div v-for="(message, index) in activeChat.messages" class="message" :class="{'left-messages': message.status === 'received', 'right-messages': message.status === 'sent'}">
+            <div v-for="(message, index) in activeChat.messages" class="message clearfix" :class="{'left-messages': message.status === 'received', 'right-messages': message.status === 'sent'}">
               <div class="message-text">
-                {{message.message}}
+                <p>{{message.message}}</p>
               </div>
               <div class="message-date">
-                {{message.date}}
+                <span>{{message.date}}</span>
               </div>
             </div>
     

@@ -238,14 +238,14 @@ input{
 .container-messages .message{
   min-width: 200px;
   margin: 5px 0;
-  height: 40px;
   border-radius: 10px;
 }
 
 .container-messages .left-messages, .container-messages .right-messages{
-  display: flex;
-  justify-content: space-between;
-  /* position: relative; */
+  width: 250px;
+  position: relative;
+  padding: 1px 0;
+  margin: 5px 0;
   clear: both;
 }
 
@@ -259,20 +259,21 @@ input{
 }
 
 .message-text{
+  float: left;
   font-size: 12px;
   font-weight: bold;
-  padding: 0px 15px;
-  line-height: 40px;
+  padding: 15px 15px;
 }
 
 .message-date{
   font-size: 8px;
   color: #B8BABC;
-  /* position: absolute; */
+  position: absolute;
   align-self: flex-end;
-  padding: 5px;
-  bottom: 2px;
+  margin: 5px;
+  bottom: 0;
   right: 5px;
+  float: right;
 }
 .send-message-input{
   background-color: #F4EEEA;
