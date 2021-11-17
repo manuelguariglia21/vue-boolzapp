@@ -150,7 +150,9 @@ const app = new Vue({
 
   activeChat: null,
 
-  },
+  activeMessage: null,
+
+  optionActive: false,
 
   searchingWord: 'Luisa',
 
@@ -159,6 +161,10 @@ const app = new Vue({
   invisibleContact: [],
 
   newText: 'ciao',
+
+  },
+
+  
 
   methods:{
     getImage(id){
@@ -221,7 +227,26 @@ const app = new Vue({
       }
       
       
-    }
+    },
+
+    isClicked(message){
+      this.activeMessage = message;
+      console.log(this.activeMessage);
+    },
+
+    deleteMessages(array, index){
+      console.log('array selezionato:', array);
+      console.log('indice dell\'elemento selezionato', index);
+      array.splice(index, 1);
+      if(index === 0){
+        array[0] = {
+          date: '',
+          message: '',
+          status: ''
+        }
+      }
+      
+    },
 
   }
 
