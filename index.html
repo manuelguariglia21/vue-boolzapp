@@ -86,11 +86,13 @@
       <!-- /ASIDE -->
   
       <!-- CHAT -->
+      
       <section v-if="activeChat === null" class="mount">
         <img src="img/connection.jpg" alt="connection">
         <h1>Mantieni il telefono connesso</h1>
         <p>BoolzApp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</p>
       </section>
+
       <section class="chat" v-if="activeChat != null" >
         <div class="active-contact-bar">
   

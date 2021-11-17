@@ -27,6 +27,7 @@ input{
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  outline: none;
 }
 
 .clearfix::after{
@@ -43,6 +44,7 @@ input{
   background-color: #F8F9FB;
 }
 .mount{
+  width: 60%;
   height: 100%;
   display: flex;
   flex-direction: column;
