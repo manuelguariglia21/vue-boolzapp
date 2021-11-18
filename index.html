@@ -70,7 +70,7 @@
                     {{contact.name}}
                   </div>
                   <div class="contact-message">
-                    {{contact.messages.slice(-1)[0].message.substr(0, 30) + '...'}}
+                    {{lastMessage(contact.messages)}}
                   </div>
                 </div>
               </div>

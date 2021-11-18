@@ -171,6 +171,7 @@ const app = new Vue({
   
 
   methods:{
+
     getImage(id){
       return 'img/avatar'+id+'.jpg' ;
     },
@@ -183,6 +184,15 @@ const app = new Vue({
         array[index].visible = false;
       }
       else array[index].visible = true;
+    },
+
+    lastMessage(array){
+      let lastM = array.slice(-1)[0].message;
+      if(lastM.length > 30){
+        console.log('ultimo messaggio è troppo lungo!!');
+        lastM = lastM.substr(0, 30) + '...';
+      }
+      return lastM;
     },
 
     isActive(element){
