@@ -56,7 +56,12 @@
           <!-- SEARCH BAR -->
           <div class="search">
             <i class="fas fa-search"></i>
-            <input v-model="searchingWord" @keyup="searchFunction()" type="text" placeholder="Cerca o inizia una nuova chat">
+            <input
+              v-model="searchingWord"
+              @keyup="searchFunction()" 
+              type="text" 
+              placeholder="Cerca o inizia una nuova chat"
+            >
           </div>
           <!-- /SEARCH BAR -->
 
@@ -64,10 +69,19 @@
           <div class="chats">
             
             <!-- contacts -->
-            <div v-for="(contact, index) in contacts" class="contact" @click="isActive(contact)" v-if="contact.visible === true" :class="{'active': activeChat === contact}">
+            <div 
+              v-for="(contact, index) in contacts" 
+              class="contact" 
+              @click="isActive(contact)" 
+              v-if="contact.visible === true" 
+              :class="{'active': activeChat === contact}"
+            >
               <div class="contact-box">
                 <div class="contact-image">
-                  <img :src="getImage(contact.avatar)" :alt="contact.name">
+                  <img 
+                    :src="getImage(contact.avatar)" 
+                    :alt="contact.name"
+                  >
                 </div>
                 <div class="contact-content">
                   <div class="contact-name">
@@ -94,20 +108,29 @@
         <!-- CHAT BOX -->
         
         <!-- Default Mount -->
-        <section v-if="activeChat === null" class="mount">
+        <section 
+          v-if="activeChat === null" 
+          class="mount"
+        >
           <img src="img/connection.jpg" alt="connection">
           <h1>Mantieni il telefono connesso</h1>
           <p>BoolzApp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</p>
         </section>
         <!-- /Default Mount -->
 
-        <!-- Active Chat -->
-        <section class="chat" v-if="activeChat != null" >
+        <!-- Chat -->
+        <section 
+          class="chat" 
+          v-if="activeChat != null" 
+        >
           <div class="active-contact-bar">
     
             <!-- profile-image -->
             <div class="profile" id="avatar-1">
-              <img :src="getImage(activeChat.avatar)" alt="">
+              <img 
+                :src="getImage(activeChat.avatar)" 
+                alt="activeChat.name"
+              >
               <div class="user-info">
                 <div class="user-name">
                   <span>{{activeChat.name}}</span>
@@ -133,17 +156,29 @@
           <div class="chat-box">
             <div class="container-messages clearfix">
     
-              <div v-for="(message, index) in activeChat.messages" v-if="message.status === 'sent' || message.status === 'received'" class="message clearfix" :class="{'left-messages': message.status === 'received', 'right-messages': message.status === 'sent'}">
+              <div
+                v-for="(message, index) in activeChat.messages" 
+                v-if="message.status === 'sent' || message.status === 'received'" 
+                class="message clearfix" 
+                :class="{'left-messages': message.status === 'received', 'right-messages': message.status === 'sent'}"
+              >
+
                 <div class="message-text">
                   <p>{{message.message}}</p>
                 </div>
                 <div class="message-date">
                   <span>{{message.date}}</span>
                 </div>
-                <div class="message-options" @click="isClicked(message), optionActive = !optionActive">
+                <div 
+                  class="message-options" 
+                  @click="isClicked(message), optionActive = !optionActive"
+                >
                   <i class="fas fa-chevron-down"></i>
                 </div>
-                <div v-if="message === activeMessage && optionActive" class="options-panel">
+                <div 
+                  v-if="message === activeMessage && optionActive" 
+                  class="options-panel"
+                >
                   <ul>
                     <li @click="deleteMessages(activeChat.messages, index)">
                       <span>
@@ -152,6 +187,7 @@
                     </li>
                   </ul>
                 </div>
+
               </div>
       
             </div>
@@ -162,12 +198,17 @@
           <!-- send message input -->
           <div class="send-message-input">
             <i class="far fa-smile"></i>
-            <input @keyup.enter="sendMessage(activeChat)" v-model="newText" type="text" placeholder="Scrivi un messaggio">
+            <input 
+              @keyup.enter="sendMessage(activeChat)" 
+              v-model="newText" 
+              type="text" 
+              placeholder="Scrivi un messaggio"
+            >
             <i class="fas fa-microphone"></i>
           </div>
           <!-- /send message input -->
         </section>
-        <!-- /Active Chat -->
+        <!-- /Chat -->
 
         <!-- /CHAT BOX-->
         
