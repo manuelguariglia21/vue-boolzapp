@@ -242,9 +242,10 @@ const app = new Vue({
       console.log('array selezionato:', array);
       console.log('indice dell\'elemento selezionato', index);
       array.splice(index, 1);
-      if(index === 0){
+      if(array.length === 0){
+        console.log('lunghezza array', array.length);
         array[0] = {
-          date: '',
+          date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
           message: '',
           status: ''
         }

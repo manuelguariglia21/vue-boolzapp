@@ -124,7 +124,7 @@
           <div class="chat-box">
             <div class="container-messages clearfix">
     
-              <div v-for="(message, index) in activeChat.messages" class="message clearfix" :class="{'left-messages': message.status === 'received', 'right-messages': message.status === 'sent'}">
+              <div v-for="(message, index) in activeChat.messages" v-if="message.status === 'sent' || message.status === 'received'" class="message clearfix" :class="{'left-messages': message.status === 'received', 'right-messages': message.status === 'sent'}">
                 <div class="message-text">
                   <p>{{message.message}}</p>
                 </div>
@@ -171,7 +171,7 @@
   <!-- Day Js - plugin -->
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/plugin/customParseFormat.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/plugin/relativeTime.js"></script>
-  
+
   <!-- Day Js - locale -->
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/locale/it.js"></script>
   
