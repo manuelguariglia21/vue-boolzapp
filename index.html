@@ -140,10 +140,10 @@
                 <div class="message-date">
                   <span>{{message.date}}</span>
                 </div>
-                <div class="message-options">
-                  <i @click="isClicked(message)" :class="{'clicked': optionActive}" class="fas fa-chevron-down"></i>
+                <div class="message-options" @click="isClicked(message), optionActive = !optionActive">
+                  <i class="fas fa-chevron-down"></i>
                 </div>
-                <div v-if="message === activeMessage" class="options-panel">
+                <div v-if="message === activeMessage && optionActive" class="options-panel">
                   <ul>
                     <li @click="deleteMessages(activeChat.messages, index)">
                       <span>
