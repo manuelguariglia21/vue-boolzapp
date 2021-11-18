@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,22 +10,25 @@
   <title>Boolzapp</title>
 </head>
 <body>
+
+  <!-- APP -->
   <div id="app">
     <main>
       <div class="container clearfix">
         <!-- ASIDE -->
         <section class="aside">
+
           <!-- USER BAR -->
           <div class="user-bar">
     
-            <!-- profile-image -->
+            <!-- profile -->
             <div class="profile" id="avatar-1">
               <img src="img/avatar_io.jpg" alt="">
               <div class="user-name" id="name-1">
                 <span>Nome Cognome</span>
               </div>
             </div>
-            <!-- /profile-image -->
+            <!-- /profile -->
     
             <!-- settings -->
             <div class="settings">
@@ -56,7 +59,8 @@
             <input v-model="searchingWord" @keyup="searchFunction()" type="text" placeholder="Cerca o inizia una nuova chat">
           </div>
           <!-- /SEARCH BAR -->
-    
+
+          <!-- CHATS -->
           <div class="chats">
             
             <!-- contacts -->
@@ -82,17 +86,22 @@
             <!-- /contacts -->
             
           </div>
+          <!-- /CHATS -->
+
         </section>
         <!-- /ASIDE -->
     
-        <!-- CHAT -->
-  
+        <!-- CHAT BOX -->
+        
+        <!-- Default Mount -->
         <section v-if="activeChat === null" class="mount">
           <img src="img/connection.jpg" alt="connection">
           <h1>Mantieni il telefono connesso</h1>
           <p>BoolzApp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</p>
         </section>
-  
+        <!-- /Default Mount -->
+
+        <!-- Active Chat -->
         <section class="chat" v-if="activeChat != null" >
           <div class="active-contact-bar">
     
@@ -158,7 +167,9 @@
           </div>
           <!-- /send message input -->
         </section>
-        <!-- /CHAT -->
+        <!-- /Active Chat -->
+
+        <!-- /CHAT BOX-->
         
       </div>
     </main>
@@ -175,7 +186,11 @@
   <!-- Day Js - locale -->
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/locale/it.js"></script>
   
+  <!-- Vue -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+  <!-- My Js -->
   <script src="js/script.js"></script>
+  
 </body>
 </html>

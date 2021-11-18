@@ -1,3 +1,5 @@
+/********** GENERAL **********/
+
 *{
   margin: 0;
   padding: 0;
@@ -43,31 +45,33 @@ input{
   margin: 0 auto;
   background-color: #F8F9FB;
 }
-.mount{
-  width: 60%;
-  height: 100%;
+
+/** Profile General **/
+.profile{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  margin: 0px 20px;
+}
+.profile img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+  cursor: pointer;
 }
 
-.mount img{
-  width: 250px;
-  margin-top: 50px;
+.profile .user-name{
+  font-size: 12px;
+  font-weight: bolder;
 }
-.mount h1, .mount p{
-  margin-top: 20px;
-  text-align: center;
+
+.user-lastime{
+  font-size: 10px;
+  color:#7B8283;
+  font-weight: bold;
 }
-.aside{
-  width: 40%;
-  height: 100%;
-  background-color: #FAFAFA;
-  float: left;
-}
-/*** Bars ***/
+
+/** Bars **/
 .user-bar{
   width: 100%;
 }
@@ -85,8 +89,7 @@ input{
   width: calc(100% - 2px);
 }
 
-
-/** settings **/
+/** Settings **/
 
 .settings i{
   font-size: 20px;
@@ -95,7 +98,15 @@ input{
   cursor: pointer;
 }
 
-/*** Notify Bar ***/
+/********** ASIDE **********/
+.aside{
+  width: 40%;
+  height: 100%;
+  background-color: #FAFAFA;
+  float: left;
+}
+
+/** Notify Bar **/
 .notify-bar{
   height: 60px;
   background-color: #8DDBFC;
@@ -127,8 +138,7 @@ input{
   font-size: 10px;
 }
 
-
-/*** SEARCH BAR ***/
+/** Search Bar **/
 
 .search{
   border-radius: 10px 0px 0px 10px;
@@ -156,7 +166,7 @@ input{
   padding-right: 15px;
 }
 
-/*** CHATS ***/
+/** Chats and Contacts **/
 .chats{
   height: calc(100% - 180px);
   overflow-y: scroll;
@@ -210,32 +220,30 @@ input{
 }
 
 
-/*** Users General ***/
-.profile{
+
+/********** CHAT BOX **********/
+
+/** Default Mount **/
+.mount{
+  width: 60%;
+  height: 100%;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-}
-.profile img{
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 15px;
-  cursor: pointer;
+  margin: 0px 20px;
 }
 
-.profile .user-name{
-  font-size: 12px;
-  font-weight: bolder;
+.mount img{
+  width: 250px;
+  margin-top: 50px;
+}
+.mount h1, .mount p{
+  margin-top: 20px;
+  text-align: center;
 }
 
-.user-lastime{
-  font-size: 10px;
-  color:#7B8283;
-  font-weight: bold;
-}
-
-/*** CHAT ***/
+/** Active Chat **/
 .chat{
   width: 60%;
   height: 100%;
