@@ -1,3 +1,7 @@
+/** DayJs **/
+dayjs.extend(window.dayjs_plugin_customParseFormat);
+dayjs.extend(window.dayjs_plugin_relativeTime);
+
 const app = new Vue({
   el: '#app',
   data: {
@@ -154,13 +158,13 @@ const app = new Vue({
 
   optionActive: false,
 
-  searchingWord: 'Luisa',
+  searchingWord: '',
 
   visibleContact:[],
 
   invisibleContact: [],
 
-  newText: 'ciao',
+  newText: '',
 
   },
 
@@ -188,12 +192,12 @@ const app = new Vue({
 
     sendMessage(activeChat){
       newMessage = {
-        date: '10/01/2020 15:30:55',
+        date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
         message: this.newText,
         status: 'sent'
       };
       newReceivedMessage = {
-        date: '10/01/2020 15:30:55',
+        date: dayjs().format("DD/MM/YYYY HH:mm:ss"),
         message: 'ok',
         status: 'received'
       }

@@ -6,162 +6,174 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="shortcut icon" href="img/Logo-Boolzapp.png" />
   <title>Boolzapp</title>
 </head>
 <body>
-
   <div id="app">
-    <div class="container clearfix">
-
-      <!-- ASIDE -->
-      <section class="aside">
-        <!-- USER BAR -->
-        <div class="user-bar">
-  
-          <!-- profile-image -->
-          <div class="profile" id="avatar-1">
-            <img src="img/avatar_io.jpg" alt="">
-            <div class="user-name" id="name-1">
-              <span>Nome Cognome</span>
-            </div>
-          </div>
-          <!-- /profile-image -->
-  
-          <!-- settings -->
-          <div class="settings">
-            <i class="fas fa-circle-notch"></i>
-            <i class="fas fa-comment-alt"></i>
-            <i class="fas fa-ellipsis-v"></i>
-          </div>
-          <!-- /settings -->
-  
-        </div>
-        <!-- /USER BAR -->
-  
-        <!-- NOTIFY BAR -->
-        <div class="notify-bar">
-          <div class="notify-icon">
-            <i class="fas fa-bell-slash"></i>
-          </div>
-          <div class="notify-link">
-            <p>Ricevi notifiche di nuovi messaggi</p>
-            <a href="#"><span>Attiva notifiche Desktop</span></a>
-          </div>
-        </div>
-        <!-- /NOTIFY BAR -->
-
-        <!-- SEARCH BAR -->
-        <div class="search">
-          <i class="fas fa-search"></i>
-          <input v-model="searchingWord" @keyup="searchFunction()" type="text" placeholder="Cerca o inizia una nuova chat">
-        </div>
-        <!-- /SEARCH BAR -->
-  
-        <div class="chats">
-          
-          <!-- contacts -->
-          <div v-for="(contact, index) in contacts" class="contact" @click="isActive(contact)" v-if="contact.visible === true" :class="{'active': activeChat === contact}">
-            <div class="contact-box">
-              <div class="contact-image">
-                <img :src="getImage(contact.avatar)" :alt="contact.name">
-              </div>
-              <div class="contact-content">
-                <div class="contact-name">
-                  {{contact.name}}
-                </div>
-                <div class="contact-message">
-                  {{contact.messages.slice(-1)[0].message.substr(0, 30) + '...'}}
-                </div>
+    <main>
+      <div class="container clearfix">
+        <!-- ASIDE -->
+        <section class="aside">
+          <!-- USER BAR -->
+          <div class="user-bar">
+    
+            <!-- profile-image -->
+            <div class="profile" id="avatar-1">
+              <img src="img/avatar_io.jpg" alt="">
+              <div class="user-name" id="name-1">
+                <span>Nome Cognome</span>
               </div>
             </div>
-            <div class="last-access">
-              {{contact.messages.slice(-1)[0].date}}
+            <!-- /profile-image -->
+    
+            <!-- settings -->
+            <div class="settings">
+              <i class="fas fa-circle-notch"></i>
+              <i class="fas fa-comment-alt"></i>
+              <i class="fas fa-ellipsis-v"></i>
             </div>
-          
-          </div>
-          <!-- /contacts -->
-          
-        </div>
-      </section>
-      <!-- /ASIDE -->
-  
-      <!-- CHAT -->
-
-      <section v-if="activeChat === null" class="mount">
-        <img src="img/connection.jpg" alt="connection">
-        <h1>Mantieni il telefono connesso</h1>
-        <p>BoolzApp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</p>
-      </section>
-
-      <section class="chat" v-if="activeChat != null" >
-        <div class="active-contact-bar">
-  
-          <!-- profile-image -->
-          <div class="profile" id="avatar-1">
-            <img :src="getImage(activeChat.avatar)" alt="">
-            <div class="user-info">
-              <div class="user-name">
-                <span>{{activeChat.name}}</span>
-              </div>
-              <div class="user-lastime">
-                <span>Ultimo accesso il {{activeChat.messages.slice(-1)[0].date}}</span>
-              </div>
-            </div>
-          </div>
-          <!-- /profile-image -->
-  
-          <!-- settings -->
-          <div class="settings">
-            <i class="fas fa-search"></i>
-            <i class="fas fa-paperclip"></i>
-            <i class="fas fa-ellipsis-v"></i>
-          </div>
-          <!-- /settings -->
-  
-        </div>
-        
-        <!-- active chat -->
-        <div class="chat-box">
-          <div class="container-messages clearfix">
-  
-            <div v-for="(message, index) in activeChat.messages" class="message clearfix" :class="{'left-messages': message.status === 'received', 'right-messages': message.status === 'sent'}">
-              <div class="message-text">
-                <p>{{message.message}}</p>
-              </div>
-              <div class="message-date">
-                <span>{{message.date}}</span>
-              </div>
-              <div class="message-options">
-                <i @click="isClicked(message)" :class="{'clicked': optionActive}" class="fas fa-chevron-down"></i>
-              </div>
-              <div v-if="message === activeMessage" class="options-panel">
-                <ul>
-                  <li>
-                    <span @click="deleteMessages(activeChat.messages, index)">
-                      Elimina messaggio
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <!-- /settings -->
     
           </div>
-        </div>
-        
-        <!-- /active chat -->
-
-        <!-- send message input -->
-        <div class="send-message-input">
-          <i class="far fa-smile"></i>
-          <input @keyup.enter="sendMessage(activeChat)" v-model="newText" type="text" placeholder="Scrivi un messaggio">
-          <i class="fas fa-microphone"></i>
-        </div>
-        <!-- /send message input -->
-      </section>
-      <!-- /CHAT -->
+          <!-- /USER BAR -->
+    
+          <!-- NOTIFY BAR -->
+          <div class="notify-bar">
+            <div class="notify-icon">
+              <i class="fas fa-bell-slash"></i>
+            </div>
+            <div class="notify-link">
+              <p>Ricevi notifiche di nuovi messaggi</p>
+              <a href="#"><span>Attiva notifiche Desktop</span></a>
+            </div>
+          </div>
+          <!-- /NOTIFY BAR -->
+  
+          <!-- SEARCH BAR -->
+          <div class="search">
+            <i class="fas fa-search"></i>
+            <input v-model="searchingWord" @keyup="searchFunction()" type="text" placeholder="Cerca o inizia una nuova chat">
+          </div>
+          <!-- /SEARCH BAR -->
+    
+          <div class="chats">
+            
+            <!-- contacts -->
+            <div v-for="(contact, index) in contacts" class="contact" @click="isActive(contact)" v-if="contact.visible === true" :class="{'active': activeChat === contact}">
+              <div class="contact-box">
+                <div class="contact-image">
+                  <img :src="getImage(contact.avatar)" :alt="contact.name">
+                </div>
+                <div class="contact-content">
+                  <div class="contact-name">
+                    {{contact.name}}
+                  </div>
+                  <div class="contact-message">
+                    {{contact.messages.slice(-1)[0].message.substr(0, 30) + '...'}}
+                  </div>
+                </div>
+              </div>
+              <div class="last-access">
+                {{contact.messages.slice(-1)[0].date}}
+              </div>
+            
+            </div>
+            <!-- /contacts -->
+            
+          </div>
+        </section>
+        <!-- /ASIDE -->
+    
+        <!-- CHAT -->
+  
+        <section v-if="activeChat === null" class="mount">
+          <img src="img/connection.jpg" alt="connection">
+          <h1>Mantieni il telefono connesso</h1>
+          <p>BoolzApp si collega al tuo telefono per sincronizzare i messaggi. Per ridurre l'utilizzo dei dati, collega il telefono al Wi-Fi.</p>
+        </section>
+  
+        <section class="chat" v-if="activeChat != null" >
+          <div class="active-contact-bar">
+    
+            <!-- profile-image -->
+            <div class="profile" id="avatar-1">
+              <img :src="getImage(activeChat.avatar)" alt="">
+              <div class="user-info">
+                <div class="user-name">
+                  <span>{{activeChat.name}}</span>
+                </div>
+                <div class="user-lastime">
+                  <span>Ultimo accesso il {{activeChat.messages.slice(-1)[0].date}}</span>
+                </div>
+              </div>
+            </div>
+            <!-- /profile-image -->
+    
+            <!-- settings -->
+            <div class="settings">
+              <i class="fas fa-search"></i>
+              <i class="fas fa-paperclip"></i>
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
+            <!-- /settings -->
+    
+          </div>
+          
+          <!-- active chat -->
+          <div class="chat-box">
+            <div class="container-messages clearfix">
+    
+              <div v-for="(message, index) in activeChat.messages" class="message clearfix" :class="{'left-messages': message.status === 'received', 'right-messages': message.status === 'sent'}">
+                <div class="message-text">
+                  <p>{{message.message}}</p>
+                </div>
+                <div class="message-date">
+                  <span>{{message.date}}</span>
+                </div>
+                <div class="message-options">
+                  <i @click="isClicked(message)" :class="{'clicked': optionActive}" class="fas fa-chevron-down"></i>
+                </div>
+                <div v-if="message === activeMessage" class="options-panel">
+                  <ul>
+                    <li @click="deleteMessages(activeChat.messages, index)">
+                      <span>
+                        Elimina messaggio
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
       
-    </div>
+            </div>
+          </div>
+          
+          <!-- /active chat -->
+  
+          <!-- send message input -->
+          <div class="send-message-input">
+            <i class="far fa-smile"></i>
+            <input @keyup.enter="sendMessage(activeChat)" v-model="newText" type="text" placeholder="Scrivi un messaggio">
+            <i class="fas fa-microphone"></i>
+          </div>
+          <!-- /send message input -->
+        </section>
+        <!-- /CHAT -->
+        
+      </div>
+    </main>
+    
   </div>
+
+  <!-- Day Js - core -->
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+
+  <!-- Day Js - plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/plugin/customParseFormat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/plugin/relativeTime.js"></script>
+  
+  <!-- Day Js - locale -->
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/locale/it.js"></script>
   
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script src="js/script.js"></script>
